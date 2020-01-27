@@ -1,4 +1,4 @@
-# Problem Solving Patterns
+# /Problem Solving Patterns
 
 ### Some Patterns ..
 
@@ -25,6 +25,10 @@ same([1, 2, 3], [4 ,1 ,9]) // true
 same([1,2,3], [1,9]) // false
 same([1,2,1], [4,4,1]) // false (must be same frequency)
 ```
+
+
+
+
 
 ## Multiple Pointers (such as 2 point, 4 point approaches)
 
@@ -54,6 +58,30 @@ function sumZero(arr){
          	left++;   
         }
     }
+}
+```
+
+
+
+## Sliding Window
+
+- This pattern involves creating a **window** which can either be an array or number from one position to another
+- Depending on a certain condition, the window either increases or closes (and a new window is created)
+- Very useful for keeping track of a subset of data in an array/string etc.
+
+
+
+```js
+// Write a function called maxSubArrayySum which accepts an array of integers and a nuber called n. The function should calculate the maximum sum of n consecutive elements in the array. 
+
+// Naive Solution: 
+
+function maxSubarraySum(arr, num){
+    if (num > arr.length){
+		return null;
+    }
+    let max = -Infinity;
+    
 }
 ```
 
