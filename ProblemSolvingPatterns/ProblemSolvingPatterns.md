@@ -1,4 +1,4 @@
-# /Problem Solving Patterns
+# Problem Solving Patterns
 
 ### Some Patterns ..
 
