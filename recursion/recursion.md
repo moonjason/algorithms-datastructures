@@ -36,3 +36,64 @@ The other way is to write a solution in iterations and now we are learning it re
 - **Why do I care?**
   - You're used to functions being pushed on the call stack and popped off when they are done
   - When we werite recrusive functions, we keep pushing new functions onto the call stack! 
+
+
+
+## How Recursive Functions work
+
+- invoke the **same** function with a different input until you reach your base case 
+
+**Two essential parts of a recursive function**
+
+- Base Case
+- Different Input
+  - input changed when recalling the function 
+
+**Base Case** 
+
+- The condition when the recursion ends
+- most important concept to understand 
+
+
+
+Example 
+
+```js
+function sumRange(num) {
+  if (num === 1) return 1;
+  return num + sumRange(num - 1);
+}
+
+sumRange(3)
+	3 + sumRange(2)
+			2 + sumRange(1)
+							1
+
+sumRange(3) 
+=> 6
+```
+
+
+
+
+
+Example 2 - Factorial 
+
+```js
+//  ---- ITERAVELY 
+function factorial(num) {
+  let total = 1;
+  for (let i = num; i > 0; i--) {
+    total *= i
+  }
+  return total;
+}
+
+//  ---- RECURSIVELY
+
+function factorial(num) {
+  if(num === 1) return 1;
+  return num * factorial(num-1);
+}
+```
+
