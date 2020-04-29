@@ -97,3 +97,105 @@ function factorial(num) {
 }
 ```
 
+
+
+## Common Recursion Pitfalls
+
+- Not having a base case or not using the right one
+  - may cause an infinite loop 
+- Forgetting to return or returning the wrong thing
+  - is your base case reachable? 
+- Stack overflow! 
+
+
+
+## Helper Method Recursion 
+
+- Two Functions 
+
+- Outer method that holds something like a variable inner function that does the recursive work
+
+- example
+
+  - ```js
+    function outer(input) {
+      var outerScopedVariable = [];
+      
+      function helper(helperInput) {
+        // modify the outerScopedVariable
+        helper(helperInput--)
+      }
+      helper(input)
+      
+      return outerScopedVariable;
+    }
+    ```
+
+An outerscoped variable and inner scoped function is useful because in a normal recursive function data could be reset every time the function is called again 
+
+```js
+function collectOddValues(arr){
+    
+    let result = [];
+
+    function helper(helperInput){
+        if(helperInput.length === 0) { // if helperInput is empty
+            return; 
+        }
+        
+        if(helperInput[0] % 2 !== 0){ // push item to outer scoped variable if odd
+            result.push(helperInput[0])
+        }
+        
+        helper(helperInput.slice(1)) // recall with sliced array
+    }
+    
+    helper(arr)
+
+    return result;
+}
+
+collectOddValues([1,2,3,4,5,6,7,8,9])
+```
+
+
+
+## Pure Recursion
+
+- Function itself is recursive, no external data structure 
+
+example 
+
+```js
+function collectOddValues(arr) {
+  let newArr = [];
+  
+  if(arr.length === 0) {
+    return newArr;
+  }
+  
+  if(arr[0] % 2 !== 0) {
+    newArr.push(arr[0]);
+  }
+  
+  newArr = newArr.concat(collectOddValues(arr.slice(1)));
+  return newArr;
+}
+
+collectOddValues([1,2,3,4,5])
+[1].concat(collectOddValues([2,3,4,5]))
+					[].concat(collectOddValues([3,4,5]))
+									[3].concat(collectOddValues([4,5]))
+														[].concat(collectOddValues(5))
+																		[5].concat(collextOddValues([]))
+																								[]
+// Above equals to [1].concat[].concat[3].concat[].concat[5].concat[]
+// => [1,3,5]
+```
+
+### Pure Recursion Tips
+
+- For arrays, use methods like **slice**, the **spread operator**, and **concat** that make copies of arrays so you do not mutate them
+- Remember that strings are immutable so you will need to use methods like **slice**, **substr**, or **substring** to make copies of strings
+- To make copies of objects use **Object.assign**, or the **spread operator**
+
