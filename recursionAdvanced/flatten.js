@@ -12,6 +12,11 @@ const flatten = (arr) => {
     }
     for (let i = 0; i < arr.length; i++) {
         result = result.concat(flatten(arr[i]))
+        //           [].concat([1])
+        //                     [1] [2] [3] [ 4 , 5 ]
+        //                                   [4]  [5]
+        //  we split every thing up and make each element be in an empty array
+        //
     }
 
     return result;
