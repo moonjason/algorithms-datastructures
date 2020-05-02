@@ -2,7 +2,6 @@
 
 const capitalizeFirst = (array) => {
     if(array.length === 1) {
-        let newItem = array[0][0]
         return [`${array[0][0].toUpperCase()}${array[0].substr(1)}`];
     }
 
@@ -13,6 +12,10 @@ const capitalizeFirst = (array) => {
 }
   
 // using slice and substring for arrays and strings 
+// we are concatenating capitalized letter and the rest of the string via substr();
+// array.slice(array.length - 1) is grabbing the last index of array
+// and then we will recursively call the function with the array but the last one so it would be ['car' , 'taco]
+// leaving 'Banana' out
 
 console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana']
   
