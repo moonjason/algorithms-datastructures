@@ -16,6 +16,7 @@ const capitalizeFirst = (array) => {
 // array.slice(array.length - 1) is grabbing the last index of array
 // and then we will recursively call the function with the array but the last one so it would be ['car' , 'taco]
 // leaving 'Banana' out
+// essentially we're creating our new elements and push them to our eventual array that'll be returned at the base case !!!!!
 
 console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana']
   
