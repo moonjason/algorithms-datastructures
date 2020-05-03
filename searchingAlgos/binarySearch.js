@@ -5,30 +5,24 @@
 const binarySearch = (array, val) => {
     let left = 0;
     let right = array.length - 1;
-    let middle;
-     
-    while(left < right) {
-        middle = left + right / 2;
-        if(array[middle] === val) {
-            return middle;
+    let middle = Math.floor((left + right) / 2);
+
+    while(array[middle] !== val  && left <= right) {
+        middle = Math.floor((left + right) / 2);
+    
+        if(left === right && array[left] !== val) {
+            return -1;
         }   
 
-        if(array[right] !== val || array[left] !== val) {
-            if(array[middle] > val) {
-                right = middle;
-            } else {
-                left = middle;
-            }
+        if(array[middle] > val) {
+            right = middle - 1;
         } else {
-            if (array[right] === val) {
-                return right;
-            } else {
-                return left;
-            }
+            left = middle + 1;
         }
+
     } 
 
-    return -1;
+    return middle;
 }    
 
-console.log(binarySearch([1,2,3,4,5], 5))
+console.log(binarySearch([1,2,3,4,5], 3));
