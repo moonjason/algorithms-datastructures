@@ -76,3 +76,34 @@ Takes longer the longer the array / what element you wanna find
   - If the value is too large, move the right pointer down
 - If you never find the value, return -1
 
+``` js
+const binarySearch = () => {
+    let start = 0;
+    let end = array.length - 1;
+    let middle = Math.floor((start + end ) / 2);
+
+    while(array[middle] !== val && start <= end) {
+        if(elem < arr[middle]) end = middle - 1;
+        else start = middle + 1;
+        middle = Math.floor((start + end) / 2);
+    }
+    return arr[middle] === elem ? middle : -1;
+}
+```
+
+### Time complexity
+
+**Worst and Avg Case :**  **O(log n)**
+
+<u>It takes the longest if we search for something that is not there</u> 
+
+This is technically O (log2 N) *log base 2 of N*
+
+because for every X amount of elements because the steps it takes to get our result is 2^N = X;. For an array of 32 items, it'll take us 5 steps because  2^5 = 32. 
+
+**Best Case : O(1)** 
+
+
+
+
+
