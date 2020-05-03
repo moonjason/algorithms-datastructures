@@ -86,7 +86,7 @@ Even if the array is sorted early, we will still iterate through the array. We n
 ```js
 function bubbleSort(arr) {
     let noSwaps;
-    for(var i = arr.length; i < 0; i--) {
+    for(var i = arr.length; i > -1; i--) {
         noSwaps = true;
         for (var j = 0; j < i - 1; j++) {
             if (arr[j] > arr[j + 1]) {

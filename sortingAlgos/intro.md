@@ -57,3 +57,17 @@ function compareByLen(str1, str2) {
 
 
 
+# Big O of Basic Sorting Algos 
+
+| Algorithm      | Time Complexity (Best) | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity |
+| -------------- | ---------------------- | --------------------- | ----------------------- | ---------------- |
+| Bubble Sort    | O(n)                   | O(n^2)                | O(n^2)                  | O(1)             |
+| Insertion Sort | O(n)                   | O(n^2)                | O(n^2)                  | O(1)             |
+| Selection Sort | O(n^2)                 | O(n^2)                | O(n^2)                  | O(1)             |
+
+
+
+Selection Sort doesn't even perform well in a solid sorted situation because you're still checking for the smallest num 
+
+maybe we bring on memoization???
+
