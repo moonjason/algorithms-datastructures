@@ -39,3 +39,11 @@ const mergeSort = (arr) => {
 }
 mergeSort([10,24,76,73])
 // console.log(mergeSort([10,24,76,73]));
+
+// right's function call waits for left to be fully defined and fully called recursively
+// this means that the left side of the initially input array, is fully sorted, that variable went through the callstack
+// so before we even go to the right variable we have a left half sorted array [10, 24]
+// this process happens with the right side 
+// lets say this entire array is the left side of another one! this processes would occur thanks to our two functions and recursion and assigning our variables, return and base case like this 
+
+// essentially left and right go through the process of splitting themselves and coming back sorted EACH OF THE SAME LENGTH

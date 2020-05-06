@@ -65,3 +65,38 @@ The idea here is that a <u>**single element array is a sorted array**</u> !!!
 - Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
 - Once the array has been merged back together, return the merged ( and sorted! ) array
 
+
+
+## Big O of Merge Sort
+
+| Time Complexity(Best) | Time Complexity(Avg) | Time Complexity(Worst) | Space Complexity |
+| --------------------- | -------------------- | ---------------------- | ---------------- |
+| O(n log n)            | O(n log n)           | O(n log n)             | O(n)             |
+
+Merge sort doesn't have an edge case even if the given array is already sorted or reversed 
+
+It'll keep splitting and re-concatenating etc. 
+
+
+
+Why Time Complexity O(n log n)
+
+O(log n) = > Decomposition  
+
+it is log based 2 of n because :  2^n = length of input array
+
+n is the amount of steps it takes to  get your answer
+
+
+
+O(n) => comparisons per decomposition 
+
+Our comparison function "mergeSortedArrays()"
+
+only takes longer the bigger the input size (array length) 
+
+
+
+Why Space Complexity is O(n)
+
+As we have a larger array, we have to use more space 
