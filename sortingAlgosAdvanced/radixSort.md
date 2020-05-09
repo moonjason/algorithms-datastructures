@@ -44,6 +44,18 @@ There are **integer sorting algorithms** that work with only numbers
   - Need to figure out how many times we need to sort through the array
     - Which number has the largest number of digits?	
     - digitCount(num) - returns the number of digits in num
+  - What is the max number if digits in the array utilizing digitCount(num)
+    - mostDigits(num)
+    - You loop through and return the highest digit count found through the elements
 
+## Pseudocode
 
+- Define a function that accepts a list of numbers 
+- Figure out how many digits the largest number has
+- Loop from k = 0 up to this largest number of digits
+- For each iteration of the loop :
+  - Create buckets for each digit ( 0 to 9 )
+  - Place each number in the corresponding bucket based on its kth digit 
+- Replace our existing array with the values in our bucket starting with 0 and going up to 9
+- Return list at the end
 
