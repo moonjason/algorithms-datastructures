@@ -59,6 +59,34 @@ arr;
 
 
 ```js
+const pivot = (arr) => {
+    let pivot = 0
+    let swapIndex = 0;
+    let temp;
 
+    for (let i = 1; i < arr.length; i++){
+        if (arr[pivot] > arr[i]) {
+            swapIndex++;
+            temp = arr[swapIndex];
+            arr[swapIndex] = arr[i]; 
+            arr[i] = temp;
+        } 
+    }
+
+    temp = arr[swapIndex];
+    arr[swapIndex] = arr[pivot];
+    arr[pivot] = temp;
+
+    return arr;
+}
 ```
+
+
+
+## Pseudocode for Quick Sort
+
+- Call the pivot helper on the array
+- when the helper returns to you the updated pivot index, recursively call the pivot helper on the subarray to the left of that index, and the subarray to the right of that index
+
+- your base case occurs when you have less than 2 elements 
 
