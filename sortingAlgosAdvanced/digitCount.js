@@ -8,7 +8,7 @@ const digitCount = (num) => {
 
 
 // again math.abs is incase the number is negative
-// Math.log10  =  log 10 423  (423 being our input)
+// Math.log10  =  log base 10 423  (423 being our input)
 // NOTE ABOUT LOGARITHMS:
 // If there is no base written in a log, assume its 10
 
