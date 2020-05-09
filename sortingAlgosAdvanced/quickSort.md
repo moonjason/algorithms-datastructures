@@ -90,3 +90,21 @@ const pivot = (arr) => {
 
 - your base case occurs when you have less than 2 elements 
 
+
+
+## Big O
+
+| **Time Complexity (BEST)** | Time Complexity (AVG) | Time Complexity (WORST) | Space Complexity |
+| -------------------------- | --------------------- | ----------------------- | ---------------- |
+| O(n log n)                 | O(n log n)            | O(n^2)                  | o(Iog n)         |
+
+
+
+If already sorted, we get O(n^2)
+
+because our pivot will always stay to our left (it will always be the minimum or maximum element) 
+
+and our algorithm is built to split sides left and right
+
+it'll keep recalling the function with the longest possible array
+
