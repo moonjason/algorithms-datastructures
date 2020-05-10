@@ -53,3 +53,6 @@ const collectStrings = (obj) => {
 
 
 console.log(collectStrings(obj)); // ["foo", "bar", "baz"])
+
+
+// FOR MORE CONTEXT SEE              stringyNumbers.js
