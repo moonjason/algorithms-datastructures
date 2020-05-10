@@ -59,3 +59,16 @@ There are **integer sorting algorithms** that work with only numbers
 - Replace our existing array with the values in our bucket starting with 0 and going up to 9
 - Return list at the end
 
+
+
+
+
+## Radix Sort Big O
+
+| Time Complexity (BEST ) | Time Complexity    (Average) | Time Complexity    (Worst ) | Space Complexity |
+| ----------------------- | ---------------------------- | --------------------------- | ---------------- |
+| O(nk)                   | O(nk)                        | O(nk)                       | O(n + k)         |
+
+- n - length of array
+- k - number of digits(average)
+
