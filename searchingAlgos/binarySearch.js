@@ -10,6 +10,7 @@ const binarySearch = (array, val) => {
     while(array[middle] !== val  && left <= right) {
         middle = Math.floor((left + right) / 2);
     
+        // When array closes and gets to one element;
         if(left === right && array[left] !== val) {
             return -1;
         }   
