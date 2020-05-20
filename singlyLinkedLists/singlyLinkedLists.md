@@ -205,7 +205,7 @@ class SinglyLinkedList {
         let current = this.head;
         let newTail = current;
         
-        while(current.next) {
+        while(current.next) {    // If the our current node doesn't have a next node we will not resassign the newTail/ we found our newTail 
             newTail = current;
             current = current.next
         }
