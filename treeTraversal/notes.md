@@ -46,59 +46,70 @@
 
 
 ```js
-class Node {
-    constructor(val){
-    	this.next = null;
-		this.val = val;
+class BinarySearchTree{
+    constructor() {
+        this.root = null;
     }
-}
-
-class Queue { 
-	constructor() {
-    	this.last = null;
-        this.first = null;
-        this.size = 0; 
-    }
-    unshift(val) {
+    insert(val) {
         const newNode = new Node(val);
-        if (!this.first) {
-            this.first = newNode;
-            this.last = newNode;
+        let currentNode;
+        if(!this.root) {
+            this.root = newNode;
+            return this;
         } else {
-            newNode.next = this.first;
-         	this.first = newNode; 
+           currentNode = this.root;
+           while(true) {
+               if(val === currentNode.val) return undefined;
+               if(val < currentNode.val) {
+                  if (currentNode.left === null) {
+                      currentNode.left = newNode;
+                      return this;
+                  } else {
+                      currentNode = currentNode.left;
+                  }
+               } else if (val > currentNode.val){
+                   if(currentNode.right === null) {
+                       currentNode.right = newNode;
+                       return this;
+                   } else {
+                       currentNode = currentNode.right;
+                   }
+               }
+           }	
         }
-        
-        this.size++;
-        
-        return this; 
     }
-    pop() {
-        if (!this.last) return undefined;
-        if (this.size === 1) {
-        	this.last = null;
-            this.first = null;
+    search(val){
+        if (!this.root) return undefined;
+        let currentNode = this.root;
+        let found = false;
+		while(currentNode && !found) {
+            if(val > currentNode.value) {
+                currentNode = currentNode.right;
+            } else if (val < currentNode.value) {
+                currentNode = currentNode.left;
+            } else {
+                found = true;
+            }
         }
-        let current = this.first;
-		let newLast = current;
-        
-        while(current.next) {
-          	newLast = current;
-            current = current.next;
-        }
-        
-        this.last = newLast;
-        this.last.next = null;
-        
-        this.size--;
-        
-        return this;
+        if(!found) return undefined;
+        return currentNode;
     }
-}
+    breadthFirstSearch() {
+        const queue = []; // Can make an actual queue instead.. 
+        const results = [];
+        let currentNode = this.root
+        queue.unshift(currentNode);
+        
+        while(queue.size > 0) {
+            let currentNode = queue.pop();
+            results.push(currentNode.val);
+            if(currentNode.left) queue.unshift(currentNode.left);
+            if(currentNode.right) queue.unshift(currentNode.right);
 
-const breadthFirst = (tree.root) => {
-    const queue = new Queue()
-    const results = [];
+        }
+
+        return results;
+    }
 }
 ```
 
