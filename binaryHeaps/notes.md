@@ -101,14 +101,51 @@ class MaxBinaryHeap {
     constructor(){
         this.values = [];
     }
+    insert(element){
+        this.values.push(element);
+        let index = this.values.length - 1;
+        let temp, parentIndex;
+        while(index > 0) {
+            parentIndex = Math.floor((index - 1) / 2);
+
+            if(this.values[index] <= this.values[parentIndex]) break;
+            [this.values[index], this.values[parentIndex] ] = [this.values[parentIndex], this.values[index]]
+            // Same as 
+            // temp = this.values[index];
+            // this.values[index] = this.values[parentIndex];
+            // this.values[parentIndex] = temp;
+
+            index = parentIndex;
+        }
+
+        return this;
+    }
 }
 ```
 
 
 
+**Bubbling Up**
+
+In a Max Binary Heap ... (or Min Binary Heap, change up the condition)
+
+- If you're inserting a value that is larger than its parent , you have to rearrange it so that the inserted value is the parent of the values that are smaller than it 
+- You insert the value in the array
+- Find its parent and compare 
+  - Swap if you need 
+- Repeat until you find a parent that is bigger than the value 
 
 
-**Insert**
+
+**Insert Pseudocode**
+
+- Push the value into the values property on the heap
+- Bubble the value up to its correct spot! 
+  - Create a variable called index which is the length of the values property - 1
+  - Create a variable called parentIndex which is the floor of (index - 1)/2
+  - Keep looping as long as the values element at the parentIndex is less than the values element at the child index
+    - Swap the value of the values element at the parentIndex with the value of the element property at the child index
+    - Set the index to be the parentIndex, and start over! 
 
 
 
