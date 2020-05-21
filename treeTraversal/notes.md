@@ -118,7 +118,11 @@ class BinarySearchTree{
 
 - Working down (Depth) first, than horizontally (Breadth) first **
 
+
+
 ____
+
+
 
 **DFS PreOrder**
 
@@ -138,10 +142,53 @@ Visit the root node first, and then traverse left, then traverse the right
 
 
 ```js
-
+    preOrderDFS(){
+        const results = [];
+        // you can fit a variable declaration here so input can be the starting point of the traversal
+        const traverse = (node) => {
+            results.push(node.val);
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return results;
+    }
 ```
 
+____
 
+
+
+**DFS PostOrder**
+
+Explore from the bottom up all the left side, then all the right side, then back to the root
+
+**Pseudocode - Recursively**
+
+- Create a variable to store teh values of nodes visisted
+- Store the root of the BST in a variable called current
+- Write a helper function which accepts a node
+  - If the node has a **left** property, call the helper function with the **left** property on the node
+  - If the node has a **right** property, call the helper function with the **right** property on the node 
+  - Push the value of the node to the variable that stores the values
+- Invoke the helper function with the current variable 
+- Return the array of values 
+
+**PostOrder code is same as PreOrder's but we push after we traverse all the way to the left and right sides**
+
+```js
+    postOrderDFS(){
+        const results = [];
+        // you can fit a variable declaration here so input can be the starting point of the traversal
+        const traverse = (node) => {
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right);
+            results.push(node.val);
+        }
+        traverse(this.root);
+        return results;
+    }
+```
 
 ____
 

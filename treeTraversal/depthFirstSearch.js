@@ -67,9 +67,20 @@ class BinarySearchTree{
         // you can fit a variable declaration here so input can be the starting point of the traversal
         const traverse = (node) => {
             results.push(node.val);
-            if (!node.left && !node.right) return;
             if (node.left) traverse(node.left)
             if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return results;
+    }
+    postOrderDFS(){
+        const results = [];
+        // you can fit a variable declaration here so input can be the starting point of the traversal
+        const traverse = (node) => {
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right);
+            results.push(node.val);
+            //PostOrder code is same as PreOrder's but we push after we traverse all the way to the left and right sides
         }
         traverse(this.root);
         return results;
