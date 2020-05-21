@@ -102,6 +102,10 @@ class BinarySearchTree{
 //      6        15
 //   3    8          20
 
+
+// breadthFirstSearch()
+// => [10, 6, 15, 3, 8, 20]
+
 // preOrder()
 // => [10, 6, 3 , 8, 15, 20]
 
