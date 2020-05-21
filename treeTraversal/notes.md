@@ -194,5 +194,42 @@ ____
 
 
 
+
+
+**DFS InOrder**
+
+Traverse the entire left of the node visit the root and then the entire right 
+
+**Pseudocode - Recursively**
+
+- Create a variable to store teh values of nodes visisted
+- Store the root of the BST in a variable called current
+- Write a helper function which accepts a node
+  - If the node has a **left** property, call the helper function with the **left** property on the node
+  - Push the value of the node to the variable that stores the values 
+  - If the node has a **right** property, call the helper function with the **right** property on the node 
+-  Invoke the helper function with the current variable 
+- Return the array of values 
+
+**PostOrder code is same as PreOrder's but we push after we traverse all the way to the left and right sides**
+
+```js
+    inOrderDFS(){
+        const results = [];
+        // you can fit a variable declaration here so input can be the starting point of the traversal
+        const traverse = (node) => {
+            if (node.left) traverse(node.left)
+            results.push(node.val);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return results;
+    }
+```
+
+____
+
+
+
 ## When to use BFS and DFS*
 
