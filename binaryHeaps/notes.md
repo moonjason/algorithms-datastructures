@@ -72,7 +72,7 @@ Easy way of storing a Binary Heap using a list/array
 
 
 
-**Relationship between Heap and Array***
+## Relationship between Heap and Array*
 
 - For any Index of an array **n**...
 - The left child is stored at **2n + 1**
