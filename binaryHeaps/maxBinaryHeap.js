@@ -34,7 +34,7 @@ class MaxBinaryHeap {
     // [33, 39, 41, 18, 27, 12]
     sinkDown() {
         let idx = 0;
-        const length = this.values.length; 
+        const length = this.values.length;    // to check if the an index is valid (not out of bounds)
         const element = this.values[0];
         while(true) {
             let leftChildIdx = 2 * idx + 1; // grabbing two child indices of the current element 
@@ -42,16 +42,18 @@ class MaxBinaryHeap {
             let leftChild, rightChild;
             let swapIdx = null;
 
-            if(leftChildIdx < length) {
+            if (leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
                 if(leftChild > element) {
                     swapIdx = leftChildIdx;
                 }
             } 
 
-            if(rightChildIdx < length) {
+            if (rightChildIdx < length) {
                 rightChild = this.values[rightChildIdx];
-                if((swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)){
+                if ((swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)) {
+                // if we already swapped but the right child is bigger than the left, we swap with right 
+                // this is because we always fill left first
                     swapIdx = rightChildIdx;
                 }
             }
