@@ -120,12 +120,16 @@ class MaxBinaryHeap {
 
         return this;
     }
+    extractMax(){
+        const removedVal = this.values.pop();
+        [this.values[0], this.values[this.values.length - 1]] = [this.values[this.values.length-1], this.values[0]]
+    }
 }
 ```
 
 
 
-**Bubbling Up**
+### Bubbling Up 
 
 In a Max Binary Heap ... (or Min Binary Heap, change up the condition)
 
@@ -137,7 +141,7 @@ In a Max Binary Heap ... (or Min Binary Heap, change up the condition)
 
 
 
-**Insert Pseudocode**
+### Insert Pseudocode
 
 - Push the value into the values property on the heap
 - Bubble the value up to its correct spot! 
@@ -148,6 +152,28 @@ In a Max Binary Heap ... (or Min Binary Heap, change up the condition)
     - Set the index to be the parentIndex, and start over! 
 
 
+
+### Removing From a Heap - extractMax()
+
+- Remove the root
+- Replace with the most recently added
+- Adjust (**sink down)**;
+  - Procedure for deleting the root from the heap ( effectively extracting the maximum element in a max-heap or the minimum element in a min-heap ) and restoring the properties is called down-heap( aka bubble-down, percolate-down, sift-down, **sink-down**, and more downs ) 
+
+Works similarly to insert
+
+**Pseudocode extractMax**
+
+- Swap the first value in the values property with the last one 
+- Pop from the values property, so you can return the value at the end.
+- Have the new root "sink down" to the correct spot...
+  - Your parent index starts at 0 (the root)
+  - Find the index of the left child: 2 * index  + 1(make sure its not out of bounds)
+  - Find the index of the right child: 2 * index  + 2 (make sure its not out of bounds)
+  - If the left or right child is greater than the element... swap. If both left and right children are larger, swap with largest child
+  - The child index you swapped to now becomes the new parent index
+  - Keep looping and swapping until neither child is larger than the element.
+  - Return the old  root ! 
 
 
 
