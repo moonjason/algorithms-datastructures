@@ -232,3 +232,42 @@ Binary Heaps are used to implement Priority Queues, which are **very** commonly 
 
 They are also used quite a bit, with **graph traversal** algorithms
 
+
+
+In the real world, our comparisons would be more strict than just a priority/rank value.
+
+- There could be other factors such as, resources required, time required, etc. 
+
+
+
+## Big O of Binary Heaps* 
+
+**Both Min and Max** Heaps are GREAT for insertion and deletion, this is what these data structures EXCEL at
+
+**Insertion**
+
+- **O(log N)**
+  - O(log2 N)
+  - For 16 elements we make 4 comparisons because 2 to the power of 4 is 16
+- Worst case, in a MaxBinaryHeap, if we insert the largest number, which goes at the end of the array, we have to bring the element up all the way to the front. But we only traverse through half of the array thanks to our equation to find the parent quickly in our array.
+
+**Removal**
+
+- **O(log N)**
+  - O(log2 N)
+  - For 16 elements we make 4 comparisons because 2 to the power of 4 is 16
+- Same idea as Insertion except you start from the top with the last item in your heap
+
+**Search**
+
+- **O(N)**
+  - Can be seen as N/2
+
+
+
+## Recap
+
+- Binary Heaps are very useful data structures for sorting, and implementing other data structures like priority queues
+- Binary heaps are either MaxBinaryHeaps or MinBinaryHeaps with parents either being smaller of larger than their children
+- With just little bit of math, we can represent heaps using arrays!
+
