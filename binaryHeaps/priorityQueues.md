@@ -61,6 +61,9 @@ class Node {
         this.priority = priority;
     }
 }
+
+const queue = [];
+// or you could easily create a class
 ```
 
 
