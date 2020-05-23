@@ -270,7 +270,17 @@ class HashTable {
   - Stores the key-value pair in the hast table array via separate chaining 
 
 ```js
+    _set(key, value) {
+        const newPair = [key, value];
+        const hashedKey = this._hash(key);
 
+        if(!this.keyMap[hashedKey]) {
+            this.keyMap[hashedKey] = [];
+        } 
+        
+        this.keyMap[hashedKey].push(newPair)
+        return this.keyMap
+    }
 ```
 
 
@@ -280,3 +290,8 @@ class HashTable {
   - Hashes the key
   - Retrieves the key-value pair in the hash table
   - If the key isn't found, returns undefined 
+
+```js
+
+```
+

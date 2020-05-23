@@ -23,8 +23,19 @@ class HashTable {
         this.keyMap[hashedKey].push(newPair)
         return this.keyMap
     }
+    _get(key) {
+        const hashedKey = this._hash(key);
+
+        for (let i = 0; i < this.keyMap[hashedKey].length; i++) {
+            if (key === this.keyMap[hashedKey][i][0]) {
+                return this.keyMap[hashedKey][i][1];
+            }
+        }
+
+        return undefined;
+    }
 }
 
 let ht = new HashTable();
 ht._set('hello, wolrd', 'goodbye world');
-console.log(ht.keyMap)
+console.log(ht._get('hello, wolrd'))
