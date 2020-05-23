@@ -236,3 +236,47 @@ There are many strategies for dealing with collisions but we'll focus on two:
 
 ## Handling Collisions Using Separate Chaining or Linear Probing*
 
+
+
+### Building A Hash Table
+
+A HashTable Class
+
+```js
+class HashTable {
+    constructor(size=53) { // If we don't include a size when instantiating, default to 53
+        this.keyMap = new Array(size); // Storing all our data here
+    }
+    _hash(key){ // Pass in the key only
+        let total = 0;
+        let primeNum = 31;
+        for(let i = 0; i < Math.floor(key.length, 100); i++) {
+            let char = key[i];
+            let value = char.charCodeAt(0) - 96;
+            total = (total * primeNum + value) % this.keyMap.length; // modding our primed value by the keyMap's size
+        }
+        return total;
+    }
+}
+```
+
+
+
+**Set / Get Methods**
+
+- Set Pseudocode 
+  - Accepts a key and a value
+  - Hashes the key
+  - Stores the key-value pair in the hast table array via separate chaining 
+
+```js
+
+```
+
+
+
+- Get Pseudocode
+  - Accepts a key
+  - Hashes the key
+  - Retrieves the key-value pair in the hash table
+  - If the key isn't found, returns undefined 
