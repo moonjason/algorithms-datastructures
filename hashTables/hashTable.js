@@ -34,8 +34,47 @@ class HashTable {
 
         return undefined;
     }
+    _keys() {
+        const keys = [];
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if(this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    if(!keys.includes(this.keyMap[i][j][0])) {   // This check is so we don't store duplicate key value pairs in which we should never have this issue .
+                        keys.push(this.keyMap[i][j][0]);
+                    }
+                }
+            }
+        }
+        return keys;
+    }    
+    _values() {
+        const values = [];
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if(this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    if(!values.includes(this.keyMap[i][j][1])) {
+                        values.push(this.keyMap[i][j][1]);
+                    }
+                }
+            }
+        }
+        return values;
+    }
 }
 
 let ht = new HashTable();
 ht._set('hello, wolrd', 'goodbye world');
-console.log(ht._get('hello, wolrd'))
+ht._set('lebron james', 'goat');
+ht._set('cristiano ronaldo', 'goat 2');
+
+console.log(ht._values())
+
+ht._keys().forEach(key => {
+    console.log(ht._get(key))
+})
+
+
+
+// NOTE 
+// This example isn't really a real world example but it covers the concept of what a Hash Table is
+// in the real world, there will be much more complex methods to securely store and organize key value pairs

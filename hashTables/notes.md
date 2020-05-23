@@ -292,6 +292,27 @@ class HashTable {
   - If the key isn't found, returns undefined 
 
 ```js
+    _get(key) {
+        const hashedKey = this._hash(key);
 
+        for (let i = 0; i < this.keyMap[hashedKey].length; i++) {
+            if (key === this.keyMap[hashedKey][i][0]) {
+                return this.keyMap[hashedKey][i][1];
+            }
+        }
+
+        return undefined;
+    }
 ```
 
+
+
+**Keys / Values**
+
+Keys 
+
+- Loops through the hash table array and returns an array of keys in the table
+
+Values
+
+- Loops through the hash table array and returns an array of values in the table
