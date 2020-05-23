@@ -158,6 +158,10 @@ const getTotalCharCode = () => {
 
 
 
+## What is a good Hashing Algorithm?*
+
+
+
 **Simple Hash Example**
 
 Here is a has that works on *strings* only
@@ -173,7 +177,7 @@ const hash = (key, arrayLen) => {
     return total;
 }
 
-// modulo of Array Length apparently gets you a valid index in the target array
+// modulo of Array Length apparently gets you a valid index in the target array 
 
 
 // NOTE
@@ -186,11 +190,47 @@ We have to optimize this function so we can better distribute our hash values.
 
 
 
-## What is a good Hashing Algorithm?*
+**Refining our Hash**
+
+- ```js
+  function hash(key, arrayLen) {
+      let total = 0;
+      let primeNum = 31;
+      // If arraynLen is smaller than 100, loop that mount, if arrayLen is larger than 100, just do the first 100 elements
+      // This could be useful with larger data 
+      for (let i = 0; i < Math.min(key.length, 100); i++) {
+          let char = key[i];
+          let value = char.charCodeAt(0) - 96;
+          total = (total * primeNum + value) % arrayLen;
+      }
+      return total;
+  }
+  ```
+
+**Prime Numbers??**
+
+- The prime number in the has is helpful in spreading out the keys more uniformly
+  - They reduce the amount of **collisions** made
+    - There are studies on different functions working with prime and composite numbers 
+- It's also helpful if the array that you're putting values into has a prime length
+- You don't need to know why because Math is complicated
 
 
 
 ## Collisions in Hash Tables*
+
+- When your hash function returns a duplicate value, we can't store the same value into our data set
+- Even with a large array and a great hash function, collisions are inevitable
+
+**Handling Collisions**
+
+There are many strategies for dealing with collisions but we'll focus on two: 
+
+- **Separate Chaining**
+  - With *separate chaining*, at each index in our array we store values using a more sophisticated data structure ( e.g. an array or a linked list)
+  - This allows us to store multiple key-value pairs at the same position 
+- **Linear Probing**
+  - With *linear probing*, when we find a collision, we search through the array to find the next empty slot
 
 
 
