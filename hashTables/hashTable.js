@@ -76,5 +76,7 @@ ht._keys().forEach(key => {
 
 
 // NOTE 
+// THIS EXAMPLE IS MORE OF AN EDUCATIONAL DEMO
+
 // This example isn't really a real world example but it covers the concept of what a Hash Table is
 // in the real world, there will be much more complex methods to securely store and organize key value pairs
