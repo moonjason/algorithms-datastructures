@@ -1,6 +1,6 @@
-# Hash Tables*
+`
 
-
+​    
 
 Also known as a Hash Map
 
@@ -316,3 +316,35 @@ Keys
 Values
 
 - Loops through the hash table array and returns an array of values in the table
+
+
+
+
+
+## Big O of Hash Tables*
+
+(Average / Best Case)
+
+- Insertion **O(1)**
+- Deletion **O(1)**
+- Access **O(1)**
+
+It comes down to how fast the hash function is and how evenly distributed the key-value pairs are to minimize collision
+
+
+
+The world's worst hash function will be **O(n)**
+
+- When everything is being distributed to few spots
+
+
+
+## Recap
+
+- Hash tables are collections of key-value pairs
+- Hash tables can find values quickly given a key
+- Hash tables can add new key-values quickly
+- Hash tables store data in a large array, and work by *hashing* the keys
+- A good hash should be fast, distribute keys uniformly, and be deterministic 
+- Separate chaining and linear probing are two strategies used to deal with two keys that hash the same index 
+
