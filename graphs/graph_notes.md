@@ -43,9 +43,27 @@ Graph of Friends and their relationships with one another
 
 ## Compare & Contrast Different Types of Graphs
 
+### Essential Graph Terms
+
+- **Vertex** - A Node
+- **Edge** - A connection
+- **Undirected Graph**
+  - No direction/polarity to the edges
+  - There is no node with a one way connection
+- **Directed Graph**
+  - There are one way edges (connections)
+- **Weighted Graph**
+  - Each edge (connection) has a value attached to it
+- **Unweighted**
+  - No values in the edges (connections)
 
 
-### Types of Graphs
+
+![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/undirectedgraph.png)
+
+
+
+## Storing Graphs - Representing A Graph : Adjacency Matrix
 
 
 
