@@ -63,7 +63,37 @@ Graph of Friends and their relationships with one another
 
 
 
-## Storing Graphs - Representing A Graph : Adjacency Matrix
+## Storing Graphs - Representing A Graph 
 
 
 
+### Two Standard Approaches
+
+#### Adjacency Matrix
+
+- A Matrix is a 2D structure usually represented by arrays 
+  - Each element pair is a value attached as false/true or 0/1 (1 being true )
+  - In the example image, we mark true if the node or vertex has an edge pointing to another vertex
+    - In a undirected graph, it'll be true if you a node simply has an edge pointing to another vertex
+
+![adjacency Matrix - directed graph](https://1.bp.blogspot.com/-tSAmvx42pII/Ux5EQxZukcI/AAAAAAAACLo/dPccUjxqb5o/s1600/Adjacency+Matrix+Representation+of+Directed+Graph.JPG)
+
+#### Adjacency List
+
+- Per Vertex, in a multi dimensional array, we store the vertex's edges 
+
+- If the value of the vertex is not a number maybe something like "A"
+
+  - We store it in a hash table like this
+
+    - ```js
+      // Undirected Graph 
+      {
+          A: ["B", "F"],
+          B: ["A", "C"]
+      }
+      ```
+
+      
+
+![adjacency list](https://www.kodefork.com/media/uploads/articles/2019/06/23/graph-ajacency-list-cpp.jpg)
