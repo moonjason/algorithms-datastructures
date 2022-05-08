@@ -96,4 +96,7 @@ Graph of Friends and their relationships with one another
 
       
 
-![adjacency list](https://www.kodefork.com/media/uploads/articles/2019/06/23/graph-ajacency-list-cpp.jpg)
+
+
+![adjacency list](http://lagodiuk.github.io/images/adj_lists/img_2.png)
+
