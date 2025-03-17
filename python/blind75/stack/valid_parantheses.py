@@ -84,11 +84,11 @@ class Solution_Optimal:
         for c in s:
             print(c)
             if c in closeToOpen:
-                if stack and stack[-1] == closeToOpen[c]:
+                if stack and stack[-1] == closeToOpen[c]: # when we get to the closing parentheses, check the nearest open parentheses to see if it matches
                     stack.pop()
                 else:
                     return False
             else:
-                stack.append(c)
+                stack.append(c) # the if statement has us only store the open brackets first this is important
         
         return True if not stack else False
