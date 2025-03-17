@@ -1,3 +1,5 @@
+from collections import defaultdict
+import pprint
 def group_anagrams(strings): 
     result = []
     ht = {}
@@ -21,14 +23,14 @@ def group_anagrams(strings):
 
 
 
-print("1st set:")
-print( group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]) )
+# print("1st set:")
+# print( group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]) )
 
-print("\n2nd set:")
-print( group_anagrams(["abc", "cba", "bac", "foo", "bar"]) )
+# print("\n2nd set:")
+# print( group_anagrams(["abc", "cba", "bac", "foo", "bar"]) )
 
-print("\n3rd set:")
-print( group_anagrams(["listen", "silent", "triangle", "integral", "garden", "ranged"]) )
+# print("\n3rd set:")
+# print( group_anagrams(["listen", "silent", "triangle", "integral", "garden", "ranged"]) )
 
 
 
@@ -69,3 +71,24 @@ def group_anagrams(strings):
     
     # convert the hash table to a list of lists
     return list(anagram_groups.values())
+
+
+## Optimal solution
+# time complexity O(m * n)
+# space complexity O(m)
+
+def group_anagrams_optimal(strs):
+    
+    res = defaultdict(list)
+
+    for s in strs:  
+        freq = [0] * 26 # takes advantage of lower case letters
+        for c in s:
+            freq[ord(c) - ord('a')] += 1
+        res[tuple(freq)].append(s)
+        # pprint.pp(res)
+
+    return list(res.values())
+
+
+print(group_anagrams_optimal(["cab","tin","pew","duh","may","ill","buy","bar","max","doc"]))
