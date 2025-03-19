@@ -55,3 +55,43 @@ def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
 #           ○Dequeue a node from Q and visit it 
 #           ○ Enqueue the left child of the dequeued node if it exists 
 #           ○ Enqueue the right child of the dequeued node if it exists .
+
+
+
+
+## POST ORDER SOLUTION (left, right, root)
+## USES RECURSION 
+
+def mirror(root):
+    if root is None:
+        return
+    
+    # Invert the left and right subtree
+    mirror(root.left)
+    mirror(root.right)
+
+    # Swap the left and right subtree
+    temp = root.left
+    root.left = root.right
+    root.right = temp
+
+# INITAL TREE 
+
+#        1
+#       / \
+#      2   3
+#     / \  / \
+#    4   5 6  7
+
+
+# CALL STACK REPRESENTATION 
+#  mirror(1)
+#  ├── mirror(2)
+#  │    ├── mirror(4)
+#  │    ├── mirror(5)
+#  ├── mirror(3)
+#       ├── mirror(6)
+#       ├── mirror(7)
+
+# FINAL EXECTUION ORDER OF POST ORDER TRAVERSAL
+# 4 → 5 → 2 → 6 → 7 → 3 → 1
