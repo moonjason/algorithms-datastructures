@@ -1,12 +1,26 @@
+from typing import List
+
+# Input: nums = [-1,0,1,2,-1,-4]
+
+# Output: [[-1,-1,2],[-1,0,1]]
+
+# Input: nums = [0,1,1]
+
+# Output: []
+
+# Input: nums = [0,0,0]
+
+# Output: [[0,0,0]]
+
 def threeSum(self, nums: List[int]) -> List[List[int]]:
     res = []
     nums.sort()
 
     for i, a in enumerate(nums):
         if a > 0: # since the problems target sum is fixed at 0, our left and right pointers will no longer provide us relevant sums
-            break
+            break # this is a sweaty ass optimization ngl... 
 
-        if i > 0 and a == nums[i - 1]:
+        if i > 0 and a == nums[i - 1]: # if current number 
             continue
 
         l, r = i + 1, len(nums) - 1
