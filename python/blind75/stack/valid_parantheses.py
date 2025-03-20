@@ -92,3 +92,32 @@ class Solution_Optimal:
                 stack.append(c) # the if statement has us only store the open brackets first this is important
         
         return True if not stack else False
+
+
+# my re-attempt
+def isValid(self, s: str) -> bool:
+    if len(s) % 2 != 0:
+        return False
+
+    stack = [] #filo
+    # loop through the string and check for opening brackets 
+    # we want pop from the stack when a parenthese are validly closed
+        # when we find a closed bracket, let's see if the opening is properly placed hence the stack
+    ht = {
+        '}': '{',
+        ']': '[',
+        ')': '('
+    }
+
+
+    for char in s:
+        if char not in ht:
+            stack.append(char)
+        else: # when there is a closed bracket ... 
+            if stack and stack[len(stack) - 1] == ht[char]: # if the most recent char is a matching opening paranthese  
+                # we check if stack exists incase there are only closed brackets 
+                stack.pop()
+            else:
+                return False
+
+    return True if not stack else False
