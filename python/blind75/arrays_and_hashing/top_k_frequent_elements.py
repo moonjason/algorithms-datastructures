@@ -27,7 +27,12 @@ class Solution:
                 ht[num] = 1
 
         # sort the ht by highest frequency 
-        ht = [key for key, value in sorted(ht.items(), key=lambda item:item[1], reverse=True)]
+        ht = [key for key, value in sorted(ht.items(), key=lambda item:item[1], reverse=True)] 
+            # Explanation of this line ^^^
+            # sorted() - the first argument requires a list/array so we convert 'ht' to a list of tuples
+            # the second argument is for how you want to sort, this case we want to sort based on the 2nd value of the tuple 
+            # the third argument is descending the sort
+            # lastly we want ht to be only the key so we loop through sorted list and only return that 
             
         # while k > 0:  
         #     result.append(ht[0])
