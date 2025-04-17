@@ -29,3 +29,24 @@
 
 -- A product pair is considered for recommendation if at least 3 different customers have purchased both products.
 -- Return the result table ordered by customer_count in descending order, and in case of a tie, by product1_id in ascending order, and then by product2_id in ascending order.
+
+ -- Weird ass problem, not my solution 
+
+SELECT 
+    pp1.product_id as product1_id, 
+    pp2.product_id as product2_id, 
+    pi1.category as product1_category,
+    pi2.category as product2_category,
+    COUNT(pp1.user_id) as customer_count 
+FROM ProductPurchases pp1 
+JOIN ProductPurchases pp2 
+    on pp1.user_id = pp2.user_id
+JOIN ProductInfo pi1 
+    on pp1.product_id = pi1.product_id
+JOIN ProductInfo pi2 
+    on pp2.product_id = pi2.product_id
+WHERE pp1.product_id != pp2.product_id 
+    and pp1.product_id < pp2.product_id
+GROUP BY pp1.product_id, pp2.product_id, pi1.category, pi2.category
+HAVING COUNT(pp1.user_id) >= 3
+ORDER BY customer_count DESC, pp1.product_id, pp2.product_id
