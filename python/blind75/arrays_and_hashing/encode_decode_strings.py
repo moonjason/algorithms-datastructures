@@ -16,7 +16,29 @@
 
 
 class Solution:
-
     def encode(self, strs: List[str]) -> str:
+        for i, s in enumerate(strs):
+            strs[i] = f"{len(s)}#{s}"
+
+        print(''.join(strs))
+        return ''.join(strs)
 
     def decode(self, s: str) -> List[str]:
+        result = []
+        i = 0
+
+        while i < len(s):
+            j = i 
+
+            while s[j] != '#': # hashtag indicates start of new word
+                j += 1
+            
+            length = int(s[i:j])
+
+            print(length, i, j)
+
+            word = s[j+1:j+1+length] # use the number delimiter to determine substring/word
+            result.append(word)
+            i = j + 1 + length # go to the next hash tag
+
+        return result 
