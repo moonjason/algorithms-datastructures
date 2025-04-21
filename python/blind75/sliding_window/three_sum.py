@@ -40,3 +40,41 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
     return res
 
 # https://neetcode.io/problems/three-integer-sum
+
+
+def threeSum(self, nums: List[int]) -> List[List[int]]:
+    nums.sort()  # Sort to use two-pointer and handle duplicates easily
+    result = []
+
+    for i in range(len(nums) - 2):
+        # Skip duplicate elements for i
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+
+        # Two-pointer setup
+        j = i + 1
+        k = len(nums) - 1
+
+        while j < k:
+            total = nums[i] + nums[j] + nums[k]
+
+            if total < 0:
+                j += 1
+            elif total > 0:
+                k -= 1
+            else:
+                # Found a valid triplet
+                result.append([nums[i], nums[j], nums[k]])
+
+                # Skip duplicate j's
+                while j < k and nums[j] == nums[j + 1]:
+                    j += 1
+                # Skip duplicate k's
+                while j < k and nums[k] == nums[k - 1]:
+                    k -= 1
+
+                # Move both pointers after a match
+                j += 1
+                k -= 1
+
+    return result
