@@ -69,6 +69,8 @@ def mirror(root):
     # Invert the left and right subtree
     mirror(root.left)
     mirror(root.right)
+    # once these resolve (meaning that the bottom of the tree was reached), the swap happens 
+    # looking at below example, when root = 2, and mirror(4) and mirror(5) are finished, the swap happens 
 
     # Swap the left and right subtree
     temp = root.left
