@@ -29,7 +29,7 @@ class Solution:
         i = 0
 
         while i < len(s):
-            j = i 
+            j = i # this part is crucial because if you dont reset J AND ONLY RELY ON THE WHILE LOOP .... J never moves since the condition is always met
 
             while s[j] != '#': # hashtag indicates start of new word
                 j += 1
