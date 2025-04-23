@@ -46,7 +46,7 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
     nums.sort()  # Sort to use two-pointer and handle duplicates easily
     result = []
 
-    for i in range(len(nums) - 2):
+    for i in range(len(nums) - 2): # loop until the last triplet possible, when first element reaches 3rd last element
         # Skip duplicate elements for i
         if i > 0 and nums[i] == nums[i - 1]:
             continue
@@ -73,7 +73,7 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
                 while j < k and nums[k] == nums[k - 1]:
                     k -= 1
 
-                # Move both pointers after a match
+                # Move both pointers after a match OR after it's iterated over a duplicate
                 j += 1
                 k -= 1
 
