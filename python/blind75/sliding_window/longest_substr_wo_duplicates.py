@@ -31,7 +31,7 @@ def lengthOfLongestSubstring(s: str) -> int:
     i = 0
     k = 0
 
-    while k < len(s):
+    while k < len(s): # we only need this loop because there is no need to 'reset' the window since the set() is containing the rolling data 
         if s[k] not in seen:
             seen.add(s[k])
             longest = max(longest, k - i + 1)
